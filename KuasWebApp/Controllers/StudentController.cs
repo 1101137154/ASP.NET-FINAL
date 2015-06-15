@@ -9,19 +9,19 @@ using System.Web.Http;
 
 namespace KuasWebApp.Controllers
 {
-    public class CourseController : ApiController
+    public class StudentController : ApiController
     {
 
-        public ICourseService CourseService { get; set; }
+        public IStudentService StudentService { get; set; }
 
         [HttpPost]
-        public Course AddCourse(Course course)
+        public Student AddStudent(Student student)
         {
-            CheckCourseIsNotNullThrowException(course);
+            CheckStudentIsNotNullThrowException(student);
 
             try
             {
-                return CourseService.AddCourse(course);
+                return StudentService.AddStudent(student);
             }
             catch (Exception)
             {
@@ -30,14 +30,14 @@ namespace KuasWebApp.Controllers
         }
 
         [HttpPut]
-        public Course UpdateCourse(Course course)
+        public Student UpdateStudent(Student student)
         {
-            CheckCourseIsNullThrowException(course);
+            CheckStudentIsNullThrowException(student);
 
             try
             {
-                CourseService.UpdateCourse(course);
-                return CourseService.GetCourseByName(course.Name);
+                StudentService.UpdateStudent(student);
+                return StudentService.GetStudentByName(student.Name);
             }
             catch (Exception)
             {
@@ -46,11 +46,11 @@ namespace KuasWebApp.Controllers
         }
 
         [HttpDelete]
-        public void DeleteEmployee(Course course)
+        public void DeleteEmployee(Student student)
         {
             try
             {
-                CourseService.DeleteCourse(course);
+                StudentService.DeleteStudent(student);
             }
             catch (Exception)
             {
@@ -59,49 +59,49 @@ namespace KuasWebApp.Controllers
         }
 
         [HttpGet]
-        public IList<Course> GetAllCourse()
+        public IList<Student> GetAllStudent()
         {
-            return CourseService.GetAllCourse();
+            return StudentService.GetAllStudent();
         }
 
         [HttpGet]
-        public Course GetCourseById(string id)
+        public Student GetStudentById(string id)
         {
-            var course = CourseService.GetCourseById(id);
+            var student = StudentService.GetStudentById(id);
 
-            if (course == null)
+            if (student == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            return course;
+            return student;
         }
 
         [HttpGet]
         [ActionName("Name")]
-        public Course GetCourseByName(string input)
+        public Student GetStudentByName(string input)
         {
-            var course = CourseService.GetCourseByName(input);
+            var student = StudentService.GetStudentByName(input);
 
-            if (course == null)
+            if (student == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            return course;
+            return student;
         }
 
         /// <summary>
         ///     檢查課程資料是否存在，如果不存在則拋出錯誤.
         /// </summary>
-        /// <param name="course">
+        /// <param name="student">
         ///     課程資料.
         /// </param>
-        private void CheckCourseIsNullThrowException(Course course)
+        private void CheckStudentIsNullThrowException(Student student)
         {
-            Course dbCourse = CourseService.GetCourseById(course.Id);
+            Student dbStudent = StudentService.GetStudentById(student.Id);
 
-            if (dbCourse == null)
+            if (dbStudent == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
@@ -110,14 +110,14 @@ namespace KuasWebApp.Controllers
         /// <summary>
         ///     檢查課程資料是否存在，如果存在則拋出錯誤.
         /// </summary>
-        /// <param name="course">
+        /// <param name="student">
         ///     課程資料.
         /// </param>
-        private void CheckCourseIsNotNullThrowException(Course course)
+        private void CheckStudentIsNotNullThrowException(Student student)
         {
-            Course dbCourse = CourseService.GetCourseById(course.Id);
+            Student dbStudent = StudentService.GetStudentById(student.Id);
 
-            if (dbCourse != null)
+            if (dbStudent != null)
             {
                 throw new HttpResponseException(HttpStatusCode.Conflict);
             }
