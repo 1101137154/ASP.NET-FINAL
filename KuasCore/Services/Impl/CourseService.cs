@@ -9,44 +9,44 @@ using System.Threading.Tasks;
 
 namespace KuasCore.Services.Impl
 {
-    public class CourseService : ICourseService
+    public class StudentService : IStudentService
     {
-        public ICourseDao CourseDao { get; set; }
+        public IStudentDao StudentDao { get; set; }
 
-        public Course AddCourse(Course course)
+        public Student AddStudent(Student student)
         {
-            CourseDao.AddCourse(course);
-            return GetCourseByName(course.Name);
+            StudentDao.AddStudent(student);
+            return GetStudentByName(student.stu_name);
         }
 
-        public void UpdateCourse(Course course)
+        public void UpdateStudent(Student student)
         {
-            CourseDao.UpdateCourse(course);
+            StudentDao.UpdateStudent(student);
         }
 
-        public void DeleteCourse(Course course)
+        public void DeleteStudent(Student student)
         {
-            course = CourseDao.GetCourseByName(course.Name);
+            student = StudentDao.GetStudentByName(student.stu_name);
 
-            if (course != null)
+            if (student != null)
             {
-                CourseDao.DeleteCourse(course);
+                StudentDao.DeleteStudent(student);
             }
         }
 
-        public IList<Course> GetAllCourse()
+        public IList<Student> GetAllStudent()
         {
-            return CourseDao.GetAllCourse();
+            return StudentDao.GetAllStudent();
         }
 
-        public Course GetCourseByName(string name)
+        public Student GetStudentByName(string name)
         {
-            return CourseDao.GetCourseByName(name);
+            return StudentDao.GetStudentByName(name);
         }
 
-        public Course GetCourseById(string id)
+        public Student GetStudentById(string id)
         {
-            return CourseDao.GetCourseById(id);
+            return StudentDao.GetStudentById(id);
         }
     }
 }
