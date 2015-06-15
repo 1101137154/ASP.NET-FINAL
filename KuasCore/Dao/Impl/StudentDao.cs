@@ -27,7 +27,7 @@ namespace KuasCore.Dao.Impl
             parameters.Add("id", DbType.String).Value = student.stu_id;
             parameters.Add("name", DbType.String).Value = student.stu_name;
             parameters.Add("phone", DbType.String).Value = student.stu_phone;
-            parameters.Add("birth", DbType.String).Value = student.stu_birth;
+            parameters.Add("birth", DbType.DateTime).Value = student.stu_birth;
             parameters.Add("info", DbType.String).Value = student.stu_info;
 
             ExecuteNonQuery(command, parameters);
@@ -35,13 +35,13 @@ namespace KuasCore.Dao.Impl
 
         public void UpdateStudent(Student student)
         {
-            string command = @"UPDATE Students SET stu_name = @name, stu_phone = @phone,stu_birth = @birth,stu_info = @info;";
+            string command = @"UPDATE Students SET stu_name = @name, stu_phone = @phone,stu_birth = @birth,stu_info = @info where stu_id = @id;";
 
             IDbParameters parameters = CreateDbParameters();
             parameters.Add("id", DbType.String).Value = student.stu_id;
             parameters.Add("name", DbType.String).Value = student.stu_name;
             parameters.Add("phone", DbType.String).Value = student.stu_phone;
-            parameters.Add("birth", DbType.String).Value = student.stu_birth;
+            parameters.Add("birth", DbType.DateTime).Value = student.stu_birth;
             parameters.Add("info", DbType.String).Value = student.stu_info;
 
             ExecuteNonQuery(command, parameters);

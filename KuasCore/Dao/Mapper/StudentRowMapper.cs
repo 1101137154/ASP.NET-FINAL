@@ -15,11 +15,11 @@ namespace KuasCore.Dao.Mapper
         {
             Student target = new Student();
 
-            target.id = dataReader.GetString(dataReader.GetOrdinal("id"));
+            target.id = dataReader.GetInt32(dataReader.GetOrdinal("id"));
             target.stu_id = dataReader.GetString(dataReader.GetOrdinal("stu_id"));
             target.stu_name = dataReader.GetString(dataReader.GetOrdinal("stu_name"));
             target.stu_phone = dataReader.GetString(dataReader.GetOrdinal("stu_phone"));
-            target.stu_birth = dataReader.GetString(dataReader.GetOrdinal("stu_birth"));
+            target.stu_birth = dataReader.GetDateTime(dataReader.GetOrdinal("stu_birth"));
             target.stu_info = dataReader.GetString(dataReader.GetOrdinal("stu_info"));
 
             return target;

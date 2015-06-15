@@ -51,11 +51,14 @@
                     },
                     schema: {
                         model: {
-                            id: "Id",
+                            id: "id",
                             fields: {
-                                Id  : { type: "string", editable: true, nullable: false },
-                                Name: { type: "string", editable: true, nullable: false },
-                                Description : { type: "string", editable: true }
+                                id: { type: "int", editable: true, nullable: false },
+                                stu_id: { type: "string", editable: true, nullable: false },
+                                stu_name: { type: "string", editable: true, nullable: false },
+                                stu_phone: { type: "string", editable: true, nullable: false },
+                                stu_birth: { type: "dateTime", editable: true, nullable: false },
+                                stu_info: { type: "string", editable: true }
                             }
                         }
                     }
@@ -73,9 +76,11 @@
                     numeric: false
                 },
                 columns: [
-                    { field: "Id"  , title: "課程編號" , width: "100px" },
-                    { field: "Name", title: "課程名稱", width: "100px" },
-                    { field: "Description", title: "課程描述", width: "160px" },
+                    { field: "stu_id", title: "學生編號", width: "100px" },
+                    { field: "stu_name", title: "學生姓名", width: "100px" },
+                    { field: "stu_phone", title: "學生手機", width: "160px" },
+                    { field: "stu_birth", title: "學生生日", width: "160px" },
+                    { field: "stu_info", title: "學生資訊", width: "160px" },
                     { command: ["edit", "destroy"], title: "Command", width: "250px" }
                 ]
             });

@@ -34,15 +34,9 @@ namespace KuasWebApp.Controllers
         {
             CheckStudentIsNullThrowException(student);
 
-            try
-            {
                 StudentService.UpdateStudent(student);
-                return StudentService.GetStudentByName(student.Name);
-            }
-            catch (Exception)
-            {
-                throw new HttpResponseException(HttpStatusCode.InternalServerError);
-            }
+                return StudentService.GetStudentByName(student.stu_name);
+           
         }
 
         [HttpDelete]
@@ -99,7 +93,7 @@ namespace KuasWebApp.Controllers
         /// </param>
         private void CheckStudentIsNullThrowException(Student student)
         {
-            Student dbStudent = StudentService.GetStudentById(student.Id);
+            Student dbStudent = StudentService.GetStudentById(student.stu_id);
 
             if (dbStudent == null)
             {
@@ -115,7 +109,7 @@ namespace KuasWebApp.Controllers
         /// </param>
         private void CheckStudentIsNotNullThrowException(Student student)
         {
-            Student dbStudent = StudentService.GetStudentById(student.Id);
+            Student dbStudent = StudentService.GetStudentById(student.stu_id);
 
             if (dbStudent != null)
             {

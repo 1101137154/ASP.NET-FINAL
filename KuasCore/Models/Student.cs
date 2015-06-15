@@ -8,7 +8,7 @@ namespace KuasCore.Models
 {
     public class Student
     {
-        public string id { get; set; }
+        public int id { get; set; }
 
         public string stu_id { get; set; }
 
@@ -16,7 +16,7 @@ namespace KuasCore.Models
 
         public string stu_phone { get; set; }
 
-        public string stu_birth { get; set; }
+        public DateTime stu_birth { get; set; }
 
         public string stu_info { get; set; }
 
