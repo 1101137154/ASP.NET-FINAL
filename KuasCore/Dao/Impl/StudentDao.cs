@@ -21,7 +21,7 @@ namespace KuasCore.Dao.Impl
 
         public void AddStudent(Student student)
         {
-            string command = @"INSERT INTO Students (stu_id, stu_name, stu_phone,stu_birth,stu_info) VALUES (@sid, @name, @phone,@birth,@info);";
+            string command = @"INSERT INTO Students (stu_id, stu_name, stu_phone, stu_birth, stu_info) VALUES (@sid, @name, @phone,@birth,@info);";
 
             IDbParameters parameters = CreateDbParameters();
             parameters.Add("sid", DbType.String).Value = student.stu_id;

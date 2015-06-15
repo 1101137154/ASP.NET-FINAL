@@ -38,21 +38,23 @@ namespace KuasCoreTests.Dao
         public void TestStudentDao_AddStudent()
         {
             Student student = new Student();
-            student.Id = "UnitTests";
-            student.Name = "單元測試";
-            student.Description = "請做出單元測試";
+            student.stu_id = "UnitTests";
+            student.stu_name = "單元測試";
+            student.stu_phone = "請做出單元測試";
+            student.stu_birth = System.DateTime.Today;
+            student.stu_info = "請做出單元測試";
             StudentDao.AddStudent(student);
 
-            Student dbStudent = StudentDao.GetStudentByName(student.Name);
+            Student dbStudent = StudentDao.GetStudentByName(student.stu_name);
             Assert.IsNotNull(dbStudent);
-            Assert.AreEqual(student.Name, dbStudent.Name);
+            Assert.AreEqual(student.stu_name, dbStudent.stu_name);
 
-            Console.WriteLine("課程編號為 = " + dbStudent.Id);
-            Console.WriteLine("課程名稱為 = " + dbStudent.Name);
-            Console.WriteLine("課程描述為 = " + dbStudent.Description);
+            Console.WriteLine("課程編號為 = " + dbStudent.stu_id);
+            Console.WriteLine("課程名稱為 = " + dbStudent.stu_name);
+            Console.WriteLine("課程描述為 = " + dbStudent.stu_info);
 
             StudentDao.DeleteStudent(dbStudent);
-            dbStudent = StudentDao.GetStudentByName(student.Name);
+            dbStudent = StudentDao.GetStudentByName(student.stu_name);
             Assert.IsNull(dbStudent);
         }
 

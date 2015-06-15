@@ -16,6 +16,12 @@
         <div id="grid"></div>
     </div>
     <script>
+        function dateTimeEditor(container, options) {
+            $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '" data-format="' + options.format + '"/>')
+                    .appendTo(container)
+                    .kendoDatePicker();
+        }
+
         $(document).ready(function () {
             var UrlBase = "/";
             $("#grid").kendoGrid({
@@ -57,7 +63,7 @@
                                 stu_id: { type: "string", editable: true, nullable: false, validation: { required: true } },
                                 stu_name: { type: "string", editable: true, nullable: false, validation: { required: true } },
                                 stu_phone: { type: "string", editable: true, nullable: false, validation: { required: true } },
-                                stu_birth: { type: "dateTime", editable: true, nullable: false, validation: { required: true } },
+                                stu_birth: { type: "date", editable: true, nullable: false, validation: { required: true } },
                                 stu_info: { type: "string", editable: true }
                             }
                         }
@@ -79,7 +85,7 @@
                     { field: "stu_id", title: "學生編號", width: "100px" },
                     { field: "stu_name", title: "學生姓名", width: "100px" },
                     { field: "stu_phone", title: "學生手機", width: "160px" },
-                    { field: "stu_birth", title: "學生生日", width: "160px" },
+                    { field: "stu_birth", title: "學生生日", width: "160px", format: "{0:dd/MM/yyyy}", editor: dateTimeEditor },
                     { field: "stu_info", title: "學生資訊", width: "160px" },
                     { command: ["edit", "destroy"], title: "Command", width: "250px" }
                 ]
