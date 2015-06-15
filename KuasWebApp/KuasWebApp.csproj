@@ -176,7 +176,7 @@
     <Content Include="Views\assets\js\main.js" />
     <Content Include="Views\assets\js\skel.min.js" />
     <Content Include="Views\assets\js\util.js" />
-    <Content Include="Views\Course.html" />
+    <Content Include="Views\Student.html" />
     <Content Include="Views\images\header.jpg" />
     <Content Include="Views\images\header2.jpg" />
     <Content Include="Views\images\pic01.jpg" />

@@ -19,7 +19,7 @@ namespace KuasCore.Dao
 
          Student GetStudentByName(string name);
 
-         Student GetStudentById(string id);
+         Student GetStudentById(int id);
 
     }
 }

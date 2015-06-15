@@ -53,11 +53,11 @@
                         model: {
                             id: "id",
                             fields: {
-                                id: { type: "int", editable: true, nullable: false },
-                                stu_id: { type: "string", editable: true, nullable: false },
-                                stu_name: { type: "string", editable: true, nullable: false },
-                                stu_phone: { type: "string", editable: true, nullable: false },
-                                stu_birth: { type: "dateTime", editable: true, nullable: false },
+                                id: { type: "int", editable: false, nullable: false, validation: { required: true } },
+                                stu_id: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_name: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_phone: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_birth: { type: "dateTime", editable: true, nullable: false, validation: { required: true } },
                                 stu_info: { type: "string", editable: true }
                             }
                         }
@@ -67,7 +67,7 @@
                 height: 550,
                 sortable: true,
                 scrollable: true,
-                sortable: true,
+                groupable: true,
                 filterable: true,
                 editable: "inline",
                 toolbar: ["create"],

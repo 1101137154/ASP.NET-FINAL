@@ -44,7 +44,7 @@ namespace KuasCore.Services.Impl
             return StudentDao.GetStudentByName(name);
         }
 
-        public Student GetStudentById(string id)
+        public Student GetStudentById(int id)
         {
             return StudentDao.GetStudentById(id);
         }

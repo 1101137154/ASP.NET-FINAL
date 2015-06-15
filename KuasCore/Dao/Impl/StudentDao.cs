@@ -21,10 +21,10 @@ namespace KuasCore.Dao.Impl
 
         public void AddStudent(Student student)
         {
-            string command = @"INSERT INTO Students (stu_id, stu_name, stu_phone,stu_birth,stu_info) VALUES (@id, @name, @phone,@birth,@info);";
+            string command = @"INSERT INTO Students (stu_id, stu_name, stu_phone,stu_birth,stu_info) VALUES (@sid, @name, @phone,@birth,@info);";
 
             IDbParameters parameters = CreateDbParameters();
-            parameters.Add("id", DbType.String).Value = student.stu_id;
+            parameters.Add("sid", DbType.String).Value = student.stu_id;
             parameters.Add("name", DbType.String).Value = student.stu_name;
             parameters.Add("phone", DbType.String).Value = student.stu_phone;
             parameters.Add("birth", DbType.DateTime).Value = student.stu_birth;
@@ -35,10 +35,11 @@ namespace KuasCore.Dao.Impl
 
         public void UpdateStudent(Student student)
         {
-            string command = @"UPDATE Students SET stu_name = @name, stu_phone = @phone,stu_birth = @birth,stu_info = @info where stu_id = @id;";
+            string command = @"UPDATE Students SET stu_id = @sid, stu_name = @name, stu_phone = @phone,stu_birth = @birth,stu_info = @info where id = @id;";
 
             IDbParameters parameters = CreateDbParameters();
-            parameters.Add("id", DbType.String).Value = student.stu_id;
+            parameters.Add("id", DbType.String).Value = student.id;
+            parameters.Add("sid", DbType.String).Value = student.stu_id;
             parameters.Add("name", DbType.String).Value = student.stu_name;
             parameters.Add("phone", DbType.String).Value = student.stu_phone;
             parameters.Add("birth", DbType.DateTime).Value = student.stu_birth;
@@ -49,10 +50,10 @@ namespace KuasCore.Dao.Impl
 
         public void DeleteStudent(Student student)
         {
-            string command = @"DELETE FROM Students WHERE stu_id = @id";
+            string command = @"DELETE FROM Students WHERE id = @id";
 
             IDbParameters parameters = CreateDbParameters();
-            parameters.Add("id", DbType.String).Value = student.stu_id;
+            parameters.Add("id", DbType.Int32).Value = student.id;
 
             ExecuteNonQuery(command, parameters);
         }
@@ -80,9 +81,9 @@ namespace KuasCore.Dao.Impl
             return null;
         }
 
-        public Student GetStudentById(string id)
+        public Student GetStudentById(int id)
         {
-            string command = @"SELECT * FROM Students WHERE stu_id = @id";
+            string command = @"SELECT * FROM Students WHERE id = @id";
 
             IDbParameters parameters = CreateDbParameters();
             parameters.Add("id", DbType.String).Value = id;
