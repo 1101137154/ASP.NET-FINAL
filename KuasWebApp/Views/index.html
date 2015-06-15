@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--
+    Helios by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <title>Student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.material.min.css" />
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+</head>
+<body class="homepage">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header">
+
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1><a href="index.html" id="logo" style="font-size: 50px; color:black;">學生管理資訊系統</a></h1>
+                    <p style="color:gray;">welcome</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </header>
+                <footer>
+                    <a href="#banner" class="button circled scrolly">Start</a>
+                </footer>
+            </div>
+
+
+
+        </div>
+
+        <!-- Banner -->
+        <section id="banner">
+            <header>
+                <h2>Hi. You're looking at <strong>me</strong>.</h2>
+            </header>
+            <div class="content-pane">
+                <div id="grid"></div>
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.onvisible.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var UrlBase = "/";
+            $("#grid").kendoGrid({
+                dataSource: {
+                    pageSize: 5,
+                    dataType: "jsonp",
+                    transport: {
+                        read: {
+                            url: UrlBase + "api/Course",
+                            contentType: "application/json; charset=utf-8",
+                            type: "GET"
+                        },
+                        create: {
+                            url: UrlBase + "api/Course",
+                            contentType: "application/json; charset=utf-8",
+                            type: "POST"
+                        },
+                        update: {
+                            url: UrlBase + "api/Course",
+                            contentType: "application/json; charset=utf-8",
+                            type: "PUT"
+                        },
+                        destroy: {
+                            url: UrlBase + "api/Course",
+                            contentType: "application/json; charset=utf-8",
+                            type: "DELETE"
+                        },
+                        parameterMap: function (data, operation) {
+                            if (operation !== "read") {
+                                return kendo.stringify(data);
+                            }
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Id: { type: "string", editable: true, nullable: false },
+                                Name: { type: "string", editable: true, nullable: false },
+                                Description: { type: "string", editable: true }
+                            }
+                        }
+                    }
+
+                },
+                height: 550,
+                sortable: true,
+                scrollable: true,
+                sortable: true,
+                filterable: true,
+                editable: "inline",
+                toolbar: ["create"],
+                pageable: {
+                    input: true,
+                    numeric: false
+                },
+                columns: [
+                    { field: "Id", title: "課程編號", width: "100px" },
+                    { field: "Name", title: "課程名稱", width: "100px" },
+                    { field: "Description", title: "課程描述", width: "160px" },
+                    { command: ["edit", "destroy"], title: "Command", width: "250px" }
+                ]
+            });
+
+        });
+    </script>
+</body>
+</html>

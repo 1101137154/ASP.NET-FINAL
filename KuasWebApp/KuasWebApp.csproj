@@ -140,6 +140,17 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="packages.config" />
+    <Content Include="Views\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\assets\fonts\FontAwesome.otf" />
+    <Content Include="Views\assets\sass\ie8.scss" />
+    <Content Include="Views\assets\sass\libs\_functions.scss" />
+    <Content Include="Views\assets\sass\libs\_mixins.scss" />
+    <Content Include="Views\assets\sass\libs\_skel.scss" />
+    <Content Include="Views\assets\sass\libs\_vars.scss" />
+    <Content Include="Views\assets\sass\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +160,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\assets\css\font-awesome.min.css" />
+    <Content Include="Views\assets\css\ie8.css" />
+    <Content Include="Views\assets\css\images\arrow.svg" />
+    <Content Include="Views\assets\css\main.css" />
+    <Content Include="Views\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\assets\js\ie\backgroundsize.min.htc" />
+    <Content Include="Views\assets\js\ie\html5shiv.js" />
+    <Content Include="Views\assets\js\ie\PIE.htc" />
+    <Content Include="Views\assets\js\ie\respond.min.js" />
+    <Content Include="Views\assets\js\jquery.dropotron.min.js" />
+    <Content Include="Views\assets\js\jquery.min.js" />
+    <Content Include="Views\assets\js\jquery.onvisible.min.js" />
+    <Content Include="Views\assets\js\jquery.scrolly.min.js" />
+    <Content Include="Views\assets\js\main.js" />
+    <Content Include="Views\assets\js\skel.min.js" />
+    <Content Include="Views\assets\js\util.js" />
     <Content Include="Views\Course.html" />
+    <Content Include="Views\images\header.jpg" />
+    <Content Include="Views\images\header2.jpg" />
+    <Content Include="Views\images\pic01.jpg" />
+    <Content Include="Views\images\pic02.jpg" />
+    <Content Include="Views\images\pic03.jpg" />
+    <Content Include="Views\images\pic04.jpg" />
+    <Content Include="Views\images\pic05.jpg" />
+    <Content Include="Views\images\pic06.jpg" />
+    <Content Include="Views\images\pic07.jpg" />
+    <Content Include="Views\images\pic08.jpg" />
+    <Content Include="Views\images\pic09.jpg" />
+    <Content Include="Views\images\pic10.jpg" />
+    <Content Include="Views\images\pic11.jpg" />
+    <Content Include="Views\images\pic12.jpg" />
+    <Content Include="Views\images\pic13.jpg" />
+    <Content Include="Views\images\pic14.jpg" />
+    <Content Include="Views\images\pic15.jpg" />
+    <Content Include="Views\index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
