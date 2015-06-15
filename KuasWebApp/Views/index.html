@@ -42,22 +42,105 @@
                 </footer>
             </div>
 
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#banner">CRUD</a></li>
+                    <li><a href="#carousel">Image</a></li>
+                </ul>
+            </nav>
 
 
         </div>
 
         <!-- Banner -->
         <section id="banner">
-            <header>
-                <h2>Hi. You're looking at <strong>me</strong>.</h2>
-            </header>
+               <h2>It's a <strong>KENDO</strong> CRUD's Generation.</h2>
             <div class="content-pane">
                 <div id="grid"></div>
             </div>
 
         </section>
 
+        <!-- Carousel -->
+        <section class="carousel" id="carousel">
+            <div class="reel">
 
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃偉綸</a>
+                    </h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃勇強</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">林君豪</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">許祐彰</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃俊翔</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃偉綸</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃勇強</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">林君豪</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">許祐彰</a></h3>
+                    <p></p>
+                </article>
+
+                <article>
+                    <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" style="height: 252px;" /></a>
+                    <h3 style="background: rgb(237, 250, 255); border-radius: 100px; width: 120px;">
+                        <a href="#">黃俊翔</a></h3>
+                    <p></p>
+                </article>
+
+
+            </div>
+        </section>
 
 
 
@@ -84,22 +167,22 @@
                     dataType: "jsonp",
                     transport: {
                         read: {
-                            url: UrlBase + "api/Course",
+                            url: UrlBase + "api/Student",
                             contentType: "application/json; charset=utf-8",
                             type: "GET"
                         },
                         create: {
-                            url: UrlBase + "api/Course",
+                            url: UrlBase + "api/Student",
                             contentType: "application/json; charset=utf-8",
                             type: "POST"
                         },
                         update: {
-                            url: UrlBase + "api/Course",
+                            url: UrlBase + "api/Student",
                             contentType: "application/json; charset=utf-8",
                             type: "PUT"
                         },
                         destroy: {
-                            url: UrlBase + "api/Course",
+                            url: UrlBase + "api/Student",
                             contentType: "application/json; charset=utf-8",
                             type: "DELETE"
                         },
@@ -111,11 +194,14 @@
                     },
                     schema: {
                         model: {
-                            id: "Id",
+                            id: "id",
                             fields: {
-                                Id: { type: "string", editable: true, nullable: false },
-                                Name: { type: "string", editable: true, nullable: false },
-                                Description: { type: "string", editable: true }
+                                id: { type: "int", editable: false, nullable: false, validation: { required: true } },
+                                stu_id: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_name: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_phone: { type: "string", editable: true, nullable: false, validation: { required: true } },
+                                stu_birth: { type: "dateTime", editable: true, nullable: false, validation: { required: true } },
+                                stu_info: { type: "string", editable: true }
                             }
                         }
                     }
@@ -124,7 +210,7 @@
                 height: 550,
                 sortable: true,
                 scrollable: true,
-                sortable: true,
+                groupable: true,
                 filterable: true,
                 editable: "inline",
                 toolbar: ["create"],
@@ -133,9 +219,11 @@
                     numeric: false
                 },
                 columns: [
-                    { field: "Id", title: "課程編號", width: "100px" },
-                    { field: "Name", title: "課程名稱", width: "100px" },
-                    { field: "Description", title: "課程描述", width: "160px" },
+                    { field: "stu_id", title: "學生編號", width: "100px" },
+                    { field: "stu_name", title: "學生姓名", width: "100px" },
+                    { field: "stu_phone", title: "學生手機", width: "160px" },
+                    { field: "stu_birth", title: "學生生日", width: "160px" },
+                    { field: "stu_info", title: "學生資訊", width: "160px" },
                     { command: ["edit", "destroy"], title: "Command", width: "250px" }
                 ]
             });
